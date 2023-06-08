@@ -1,0 +1,47 @@
+
+
+.footer {
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 25px;
+    gap: 15px;
+    background-color: rgb(78, 78, 78);
+    color: #ffffff;
+   
+}
+
+.ul__nobullets {
+    
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+        padding: 3.5px 0px;
+    }
+
+}
+
+.left {
+
+    position: relative;
+    left: 12px;
+    
+}
+
+@media screen and (min-width: 1200px) {
+
+    .footer {
+        flex-direction: row-reverse;
+        gap: 45px;
+
+    }
+
+    .ul__nobullets {
+        display: flex;
+        gap: 50px;
+    }
+    
+}
