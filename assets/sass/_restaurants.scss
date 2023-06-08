@@ -1,0 +1,172 @@
+
+
+.restaurants {
+
+    background-color: $grey-1;
+    padding: 15px 15px 35px 15px;
+    
+    .h2 {
+
+        align-self: flex-start;
+        margin-left: 0%;
+
+    }
+
+
+    
+    &__direction {
+
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        align-items: center;
+        gap: 50px;
+        justify-content: center;
+
+    }
+
+    &__card {
+
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        aspect-ratio: 4 / 3;
+        max-width: 490px;
+        box-sizing: border-box;
+        overflow: hidden;
+        background-color: #ffffff;
+        filter: drop-shadow(0px 3px 15px rgba(0, 0, 0, 0.1));
+        border-radius: 15px;
+        gap: 7px;
+
+
+
+    .card__txt {
+
+        display: flex;
+        justify-content: flex-start;
+        margin-left: 13px;
+        color: black;
+        text-decoration: none;
+        position: relative;
+        bottom: 77px;
+
+    }
+
+    img{
+
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        position: relative;
+        bottom: 77px;
+        object-fit: cover;
+        margin-bottom: 8px;
+    
+    }
+
+    .notifications {
+
+        position: absolute;
+        top: 13px;
+        right: 12px;
+        background-color: $tertiaire;
+        color: #008766;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
+        border-radius: 2px;
+        width: 80px;
+        padding: 6px;
+    
+        display: flex;
+        justify-content: center;
+    
+    }
+
+    
+
+    }
+
+}
+
+.check-container {
+    /*width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;*/
+    position: absolute;
+    bottom: 33px;
+    right: 25px;
+
+}
+
+.restaurants input[type="checkbox"]{
+
+    &:checked~.checked {
+        display: inline-block;   
+    }
+
+    &:checked~.unchecked {
+        display: none;
+    }
+}
+
+.fa-heart{
+
+    font-size: 22px;
+    
+}
+
+.checked {
+    display: none;
+    color: $primaire
+}
+
+
+.unchecked {
+
+    color: black;
+}
+
+input[type="checkbox"]{
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+
+
+
+
+/*
+    background: linear-gradient(352deg, $primaire -11%, $secondaire 124%);
+    width: 22px;
+    height: 22px;
+    opacity: 100%;
+
+    &:active {
+        opacity: 0%;
+    }
+
+}*/
+
+
+
+
+@media screen and (min-width: 1200px) {
+
+    .restaurants__direction {
+
+        flex-direction: row;
+
+    }
+
+    .restaurants {
+
+        padding-left: calc(50% - 615px);
+        padding-right: calc(50% - 615px);
+
+    }
+    
+}

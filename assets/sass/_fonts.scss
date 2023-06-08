@@ -1,0 +1,124 @@
+
+
+
+@mixin shrikhand($weight, $size, $height) {
+    
+    font-family: 'Shrikhand';
+    font-style: italic;
+    font-weight: $weight;
+    font-size: $size;
+    line-height: $height;
+}
+
+@mixin roboto($weight, $size, $height) {
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: $weight;
+    font-size: $size;
+    line-height: $height;
+}
+
+h1 {
+
+    @include shrikhand(400, 30px, 44px);
+    margin-top: 14px;
+    margin-bottom: 0px;
+}
+
+h2 {
+
+    @include roboto(700, 24px, 28px);
+    margin: 0%;
+}
+
+h3 {
+
+    @include roboto(500, 16px, 19px);
+    margin: 0%;
+}
+
+p {
+
+    @include roboto(300, 18px, 21px);
+    margin: 0%;
+}
+
+h4 {
+
+    @include roboto(500, 18px, 21px);
+    margin: 0%;
+    
+}
+
+h5 {
+
+    @include roboto(300, 15px, 17px);
+    margin: 0%;
+
+}
+
+.prix {
+
+    @include roboto(700, 15px, 18px);
+    align-self: end;
+
+}
+
+h6 {
+
+    @include roboto(300, 16px, 19px);
+    margin: 0%;
+
+}
+
+
+
+
+
+.footer__title {
+
+    @include shrikhand(400, 18px, 26px);
+}
+
+.footer__links {
+
+    @include roboto(500, 16px, 19px);
+    color: #ffffff;
+    text-decoration: none;
+
+}
+
+.restaurants__title {
+
+    @include roboto(700, 18px, 21px);
+
+}
+
+.restaurants__txt {
+
+    @include roboto(300, 17px, 20px);
+
+}
+
+.restaurantspages__title {
+
+    @include shrikhand(400, 28px, 40px);
+
+}
+
+.notifications__txt {
+
+    @include roboto(500, 14px, 16px);
+
+}
+
+@media screen and (min-width: 1200px) {
+
+    .restaurantspages__title {
+
+        align-self: center;
+
+    }
+    
+}

@@ -1,0 +1,168 @@
+
+
+.menu {
+    
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 0px 13px 0px 13px;
+    background-color: $grey-1;
+    position: relative;
+    width: 100%;
+    max-width: 1029px;
+
+    .button {
+
+        width: 186px;
+        align-self: center;
+
+    }
+
+    &__title {
+
+        display: flex;
+        flex-direction: column;
+        margin-top: 40px;
+
+    }
+
+    &__title > .ligne {
+
+        width: 40px;
+        border: 1.5px solid $tertiaire;
+
+    }
+
+    &__cards {
+        overflow: hidden;
+        display: flex;
+        justify-content: space-between;
+        border-radius: 15px;
+        background-color: white;
+        padding: 12px;
+        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
+
+    .txt-container {
+        display: flex;
+        flex-direction: column ;
+    }
+
+    .price-container {
+        display: flex;
+        justify-content: space-around;
+        flex-direction: row;
+        align-items: center;
+        position: relative;
+        margin-right: -74px;
+
+        width: 120px; //%
+        transition: all 0.5s ease-in-out;
+
+
+    }
+
+    }
+    
+}
+
+.restaurantspages__banner {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    max-height: 383px;
+    overflow: hidden;
+
+    & img{
+
+        width: 100%;
+        object-fit: cover;
+        
+    }
+
+}
+
+
+.roundbox {
+    
+    border-radius: 40px 40px 0px 0px;
+    background-color: $grey-1;
+    position: absolute;
+    bottom: 0px;
+    height: 30px;
+    width: 100%;
+    max-width: 1055px;
+
+}
+
+.main__restaurantspages {
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    
+}
+
+.sliding-checkbox {
+    
+    background-color: $tertiaire;
+    color: white;
+    width: 62px;
+    height: 62px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: -20px;
+}
+
+
+.menu input[type="checkbox"]{
+
+
+    &:checked~.price-container {
+        margin-right: -14px;  
+    }
+
+}
+
+.title-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    align-self: center;
+    width: 300px;
+
+    & input[type="checkbox"]{
+
+        &:checked~.checked {
+            display: inline-block;   
+        }
+    
+        &:checked~.unchecked {
+            display: none;
+        }
+    }
+}
+
+.restaurants input[type="checkbox"]{
+
+    &:checked~.checked {
+        display: inline-block;   
+    }
+
+    &:checked~.unchecked {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+
+    .menu__cards:hover > .price-container{
+            
+        margin-right: -14px;
+
+    }
+    
+}
