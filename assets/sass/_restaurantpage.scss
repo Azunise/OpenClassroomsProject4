@@ -51,7 +51,20 @@ $cards-fadein-delay: $loader-duration + $loader-delay + $main-delay;
 
             display: flex;
             flex-direction: column ;
-            text-overflow: ellipsis;
+            overflow: hidden;
+            width: 75%;
+
+            & h4 {
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+            }
+
+            & h5 {
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+            }
 
         }
 

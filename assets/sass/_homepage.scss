@@ -1,47 +1,84 @@
 $loader-duration: 2000ms;
 $loader-delay: 500ms;
 $main-delay: $loader-duration + $loader-delay;
-//un des 2 à rm
+
 .loader {
     overflow: hidden;
-    
-    &__part1 {
-        height: 100px;
-        width: 300px;
+
+    &__part0 {
+        display: block;
         position:absolute;
         top: 40%;
-        left: 25%;
-        overflow: hidden;
-        animation: loader-bar-1 $loader-duration $loader-delay forwards;
-    
+        left: 30%;
+
         & img {
             
             object-fit: cover;
             max-height: none;
             max-width: none;
+            animation: loader-bar-0 $loader-duration $loader-delay forwards;
+            
+        }
+    }
+    
+    &__part1 {
+        width: 50%;
+        height: 15%;
+        position:absolute;
+        top: 40%;
+        left: 30%;
+        overflow: hidden;
+        animation: loader-bar-1 $loader-duration $loader-delay forwards;
+        display: none;
+
+        & img {
+            
+            object-fit: cover;
+            max-height: none;
+            max-width: none;
+            
         }
 
     }
     
     &__part2 {
-        height: 100px;
-        width: 300px;
+        width: 50%;
+        height: 15%;
         position: absolute;
         top: 40%;
-        left:25%;
+        left:30%;
         overflow: hidden;
-        animation: loader-bar-flat-2-1 $loader-duration $loader-delay both;
-
+        animation: loader-bar-2-1 $loader-duration $loader-delay both;
+        display: none;
 
         & img {
             animation: loader-bar-2 $loader-duration $loader-delay;
             object-fit: cover;
             max-height: none;
             max-width: none;
+            
         }
         
     }
 
+}
+
+@keyframes loader-bar-0 {
+    0% {
+        transform: rotate(359deg);
+        opacity: 100%;
+    }
+
+    80% {
+        opacity: 100%;
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(-20deg);
+        opacity: 0%;
+        display: none;
+    }
 }
 
 @keyframes loader-bar-1{
@@ -58,6 +95,7 @@ $main-delay: $loader-duration + $loader-delay;
     }
     100% {
         opacity: 0%;
+        display: none;
     }
 }
 
@@ -75,23 +113,7 @@ $main-delay: $loader-duration + $loader-delay;
     100% {
         width: 50%;
         opacity: 0%;
-    }
-}
-
-@keyframes loader-bar-flat-2-1 {
-    0% {
-        width: 0px;
-        opacity: 100%;
-    }
-
-    80% {
-        opacity: 100%;
-        width: 300px;
-    }
-
-    100% {
-        width: 300px;
-        opacity: 0%;
+        display: none;
     }
 }
 
@@ -106,6 +128,7 @@ $main-delay: $loader-duration + $loader-delay;
 
     100% {
         padding-right: 0%;
+        display: none;
     }
 }
 
@@ -183,17 +206,17 @@ $main-delay: $loader-duration + $loader-delay;
 @media screen and (min-width: 1200px) {
 
     .loader {
+
+        &__part0 {
+            display: none;
+        }
         &__part1 {
-            width: 50%;
-            height: 15%;
+            display: block;
         }
 
         &__part2 {
-            width: 50%;
-            height: 15%;
-
             
-            animation: loader-bar-2-1 $loader-duration $loader-delay both;
+            display: block;
             
         }
     }
