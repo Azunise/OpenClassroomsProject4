@@ -184,28 +184,5 @@ $cards-fadein-delay: $loader-duration + $loader-delay + $main-delay;
 }
 
 
-@keyframes cards-fadein{
-    0% {
-        transform: translateX(-100px);
-        opacity: 0%;
-    }
-    
-    100% {
-        transform: translateX(0);
-        opacity: 100%;
-    }
-}
-
-@media screen and (min-width: 1200px) {
-
-    .menu__cards:hover .price-container{
-            
-        margin-right: -14px;
-
-    }
-    
-}
-
-
 
 

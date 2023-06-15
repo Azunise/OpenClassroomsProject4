@@ -63,92 +63,10 @@ $main-delay: $loader-duration + $loader-delay;
 
 }
 
-@keyframes loader-bar-0 {
-    0% {
-        transform: rotate(359deg);
-        opacity: 100%;
-    }
-
-    80% {
-        opacity: 100%;
-        transform: rotate(0deg);
-    }
-
-    100% {
-        transform: rotate(-20deg);
-        opacity: 0%;
-        display: none;
-    }
-}
-
-@keyframes loader-bar-1{
-    0% {
-        opacity: 100%;
-    }
-
-    80% {
-        opacity: 100%;
-    }
-    90%{
-        opacity: 0%;
-
-    }
-    100% {
-        opacity: 0%;
-        display: none;
-    }
-}
-
-@keyframes loader-bar-2-1 {
-    0% {
-        width: 0%;
-        opacity: 100%;
-    }
-
-    80% {
-        opacity: 100%;
-        width: 50%;
-    }
-
-    100% {
-        width: 50%;
-        opacity: 0%;
-        display: none;
-    }
-}
-
-@keyframes loader-bar-2-2{
-    0% {
-        padding-right:100%;
-    }
-
-    80% {
-        padding-right: 0%;
-    }
-
-    100% {
-        padding-right: 0%;
-        display: none;
-    }
-}
-
 .main-container{
     animation: main-fadein 1000ms $main-delay both;
 }
 
-@keyframes main-fadein{
-    0% {
-        opacity: 0%;
-    }
-
-    25% {
-        opacity: 75%;
-    }
-
-    100% {
-        opacity: 100%;
-    }
-}
 
 .banner {
 
@@ -202,24 +120,3 @@ $main-delay: $loader-duration + $loader-delay;
     }
     
 }
-
-@media screen and (min-width: 1200px) {
-
-    .loader {
-
-        &__part0 {
-            display: none;
-        }
-        &__part1 {
-            display: block;
-        }
-
-        &__part2 {
-            
-            display: block;
-            
-        }
-    }
-    
-}
-

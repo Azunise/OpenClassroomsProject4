@@ -1,5 +1,3 @@
-
-
 .restaurants {
 
     background-color: $grey-1;
@@ -154,25 +152,3 @@ input[type="checkbox"]{
 }
 
 
-@media screen and (min-width: 1200px) {
-
-    .restaurants__direction {
-
-        flex-direction: row;
-
-    }
-
-    .restaurants {
-
-        padding-left: calc(50% - 615px);
-        padding-right: calc(50% - 615px);
-
-    }
-
-    .check-container:hover .checked {
-    
-            scale: 1;
-    
-    }
-    
-}

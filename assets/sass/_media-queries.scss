@@ -1,0 +1,81 @@
+
+@media screen and (min-width: 1200px) {
+
+    .loader {
+
+        &__part0 {
+            display: none;
+        }
+        &__part1 {
+            display: block;
+        }
+
+        &__part2 {
+            
+            display: block;
+            
+        }
+    }
+    
+}
+
+@media screen and (min-width: 1200px) {
+
+    .restaurantspages__title {
+
+        align-self: center;
+
+    }
+    
+}
+
+@media screen and (min-width: 1200px) {
+
+    .footer {
+
+        flex-direction: row-reverse;
+        gap: 45px;
+
+    }
+
+    .ul__nobullets {
+
+        display: flex;
+        gap: 50px;
+        
+    }
+    
+}
+
+@media screen and (min-width: 1200px) {
+
+    .menu__cards:hover .price-container{
+            
+        margin-right: -14px;
+
+    }
+    
+}
+
+@media screen and (min-width: 1200px) {
+
+    .restaurants__direction {
+
+        flex-direction: row;
+
+    }
+
+    .restaurants {
+
+        padding-left: calc(50% - 615px);
+        padding-right: calc(50% - 615px);
+
+    }
+
+    .check-container:hover .checked {
+    
+            scale: 1;
+    
+    }
+    
+}
