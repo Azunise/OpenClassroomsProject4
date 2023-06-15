@@ -19,7 +19,9 @@
     padding: 0;
 
     li {
+
         padding: 3.5px 0px;
+
     }
 
 }
@@ -34,14 +36,17 @@
 @media screen and (min-width: 1200px) {
 
     .footer {
+
         flex-direction: row-reverse;
         gap: 45px;
 
     }
 
     .ul__nobullets {
+
         display: flex;
         gap: 50px;
+        
     }
     
 }

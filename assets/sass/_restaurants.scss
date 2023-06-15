@@ -81,15 +81,25 @@
     
     }
 
-    
+    & .checked {
+        bottom: 0px;
+        right: 0px;
+    }
+
+    & .unchecked {
+        bottom: 0px;
+        right: 0px;
+    }
 
     }
 
 }
 
 .check-container {
-    /*width: 22px;
+    width: 22px;
     height: 22px;
+    z-index: 4;
+    /*
     display: flex;
     align-items: center;
     justify-content: center;*/
@@ -102,12 +112,10 @@
 .restaurants input[type="checkbox"]{
 
     &:checked~.checked {
-        display: inline-block;   
+
+        scale: 1; 
     }
 
-    &:checked~.unchecked {
-        display: none;
-    }
 }
 
 .fa-heart{
@@ -117,14 +125,24 @@
 }
 
 .checked {
-    display: none;
-    color: $primaire
+    z-index: 3;
+    scale: 0;
+    background: linear-gradient(352deg, $primaire -11%, $secondaire 124%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: scale 0.5s;
+    position: absolute;
+    
+
 }
 
 
 .unchecked {
-
+    z-index: 2;
     color: black;
+    position: absolute;
+    
 }
 
 input[type="checkbox"]{
@@ -134,24 +152,6 @@ input[type="checkbox"]{
     height: 0;
     width: 0;
 }
-
-
-
-
-
-/*
-    background: linear-gradient(352deg, $primaire -11%, $secondaire 124%);
-    width: 22px;
-    height: 22px;
-    opacity: 100%;
-
-    &:active {
-        opacity: 0%;
-    }
-
-}*/
-
-
 
 
 @media screen and (min-width: 1200px) {
@@ -167,6 +167,12 @@ input[type="checkbox"]{
         padding-left: calc(50% - 615px);
         padding-right: calc(50% - 615px);
 
+    }
+
+    .check-container:hover .checked {
+    
+            scale: 1;
+    
     }
     
 }

@@ -1,3 +1,131 @@
+$loader-duration: 2000ms;
+$loader-delay: 500ms;
+$main-delay: $loader-duration + $loader-delay;
+//un des 2 à rm
+.loader {
+    overflow: hidden;
+    
+    &__part1 {
+        height: 100px;
+        width: 300px;
+        position:absolute;
+        top: 40%;
+        left: 25%;
+        overflow: hidden;
+        animation: loader-bar-1 $loader-duration $loader-delay forwards;
+    
+        & img {
+            
+            object-fit: cover;
+            max-height: none;
+            max-width: none;
+        }
+
+    }
+    
+    &__part2 {
+        height: 100px;
+        width: 300px;
+        position: absolute;
+        top: 40%;
+        left:25%;
+        overflow: hidden;
+        animation: loader-bar-flat-2-1 $loader-duration $loader-delay both;
+
+
+        & img {
+            animation: loader-bar-2 $loader-duration $loader-delay;
+            object-fit: cover;
+            max-height: none;
+            max-width: none;
+        }
+        
+    }
+
+}
+
+@keyframes loader-bar-1{
+    0% {
+        opacity: 100%;
+    }
+
+    80% {
+        opacity: 100%;
+    }
+    90%{
+        opacity: 0%;
+
+    }
+    100% {
+        opacity: 0%;
+    }
+}
+
+@keyframes loader-bar-2-1 {
+    0% {
+        width: 0%;
+        opacity: 100%;
+    }
+
+    80% {
+        opacity: 100%;
+        width: 50%;
+    }
+
+    100% {
+        width: 50%;
+        opacity: 0%;
+    }
+}
+
+@keyframes loader-bar-flat-2-1 {
+    0% {
+        width: 0px;
+        opacity: 100%;
+    }
+
+    80% {
+        opacity: 100%;
+        width: 300px;
+    }
+
+    100% {
+        width: 300px;
+        opacity: 0%;
+    }
+}
+
+@keyframes loader-bar-2-2{
+    0% {
+        padding-right:100%;
+    }
+
+    80% {
+        padding-right: 0%;
+    }
+
+    100% {
+        padding-right: 0%;
+    }
+}
+
+.main-container{
+    animation: main-fadein 1000ms $main-delay both;
+}
+
+@keyframes main-fadein{
+    0% {
+        opacity: 0%;
+    }
+
+    25% {
+        opacity: 75%;
+    }
+
+    100% {
+        opacity: 100%;
+    }
+}
 
 .banner {
 
@@ -41,11 +169,34 @@
     border: 0px;
     height: 50px;
 
-    //transition: transform 400ms;
     &:hover {
-        transition-duration: 400ms;
-        opacity: 75%;
-        scale:1.01;
+
+        transition-duration: 250ms;
+        opacity: 85%;
+        box-shadow: 4px 8px 10px rgba(0, 0, 0, 0.25);
+        //scale: 1.01;
+        
     }
     
 }
+
+@media screen and (min-width: 1200px) {
+
+    .loader {
+        &__part1 {
+            width: 50%;
+            height: 15%;
+        }
+
+        &__part2 {
+            width: 50%;
+            height: 15%;
+
+            
+            animation: loader-bar-2-1 $loader-duration $loader-delay both;
+            
+        }
+    }
+    
+}
+

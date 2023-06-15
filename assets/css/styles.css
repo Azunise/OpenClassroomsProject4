@@ -192,6 +192,109 @@ header {
     gap: 50px;
   }
 }
+.loader {
+  overflow: hidden;
+}
+.loader__part1 {
+  height: 100px;
+  width: 300px;
+  position: absolute;
+  top: 40%;
+  left: 25%;
+  overflow: hidden;
+  animation: loader-bar-1 2000ms 500ms forwards;
+}
+.loader__part1 img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  max-height: none;
+  max-width: none;
+}
+.loader__part2 {
+  height: 100px;
+  width: 300px;
+  position: absolute;
+  top: 40%;
+  left: 25%;
+  overflow: hidden;
+  animation: loader-bar-flat-2-1 2000ms 500ms both;
+}
+.loader__part2 img {
+  animation: loader-bar-2 2000ms 500ms;
+  -o-object-fit: cover;
+     object-fit: cover;
+  max-height: none;
+  max-width: none;
+}
+
+@keyframes loader-bar-1 {
+  0% {
+    opacity: 100%;
+  }
+  80% {
+    opacity: 100%;
+  }
+  90% {
+    opacity: 0%;
+  }
+  100% {
+    opacity: 0%;
+  }
+}
+@keyframes loader-bar-2-1 {
+  0% {
+    width: 0%;
+    opacity: 100%;
+  }
+  80% {
+    opacity: 100%;
+    width: 50%;
+  }
+  100% {
+    width: 50%;
+    opacity: 0%;
+  }
+}
+@keyframes loader-bar-flat-2-1 {
+  0% {
+    width: 0px;
+    opacity: 100%;
+  }
+  80% {
+    opacity: 100%;
+    width: 300px;
+  }
+  100% {
+    width: 300px;
+    opacity: 0%;
+  }
+}
+@keyframes loader-bar-2-2 {
+  0% {
+    padding-right: 100%;
+  }
+  80% {
+    padding-right: 0%;
+  }
+  100% {
+    padding-right: 0%;
+  }
+}
+.main-container {
+  animation: main-fadein 1000ms 2500ms both;
+}
+
+@keyframes main-fadein {
+  0% {
+    opacity: 0%;
+  }
+  25% {
+    opacity: 75%;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
 .banner {
   display: flex;
   flex-direction: column;
@@ -225,11 +328,22 @@ header {
   height: 50px;
 }
 .button:hover {
-  transition-duration: 400ms;
-  opacity: 75%;
-  scale: 1.01;
+  transition-duration: 250ms;
+  opacity: 85%;
+  box-shadow: 4px 8px 10px rgba(0, 0, 0, 0.25);
 }
 
+@media screen and (min-width: 1200px) {
+  .loader__part1 {
+    width: 50%;
+    height: 15%;
+  }
+  .loader__part2 {
+    width: 50%;
+    height: 15%;
+    animation: loader-bar-2-1 2000ms 500ms both;
+  }
+}
 .steps {
   position: relative;
   align-items: center;
@@ -237,11 +351,13 @@ header {
   flex-direction: column;
   padding: 15px 15px 48px 15px;
   gap: 25px;
+  margin: 10px;
 }
 .steps__direction {
   display: flex;
   flex-direction: column;
   gap: 25px;
+  width: 100%;
 }
 .steps__cards {
   display: flex;
@@ -253,7 +369,8 @@ header {
   color: black;
   gap: 10px;
   padding: 25px;
-  width: 322px;
+  width: calc(100% - 50px);
+  flex: 1;
 }
 .steps__cards .circle {
   display: flex;
@@ -279,7 +396,7 @@ header {
   color: #9356DC;
 }
 
-.steps > h2 {
+.steps h2 {
   display: flex;
   align-self: flex-start;
 }
@@ -353,10 +470,20 @@ header {
   display: flex;
   justify-content: center;
 }
+.restaurants__card .checked {
+  bottom: 0px;
+  right: 0px;
+}
+.restaurants__card .unchecked {
+  bottom: 0px;
+  right: 0px;
+}
 
 .check-container {
-  /*width: 22px;
+  width: 22px;
   height: 22px;
+  z-index: 4;
+  /*
   display: flex;
   align-items: center;
   justify-content: center;*/
@@ -366,10 +493,7 @@ header {
 }
 
 .restaurants input[type=checkbox]:checked ~ .checked {
-  display: inline-block;
-}
-.restaurants input[type=checkbox]:checked ~ .unchecked {
-  display: none;
+  scale: 1;
 }
 
 .fa-heart {
@@ -377,12 +501,20 @@ header {
 }
 
 .checked {
-  display: none;
-  color: #9356DC;
+  z-index: 3;
+  scale: 0;
+  background: linear-gradient(352deg, #9356DC -11%, #FF79DA 124%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: scale 0.5s;
+  position: absolute;
 }
 
 .unchecked {
+  z-index: 2;
   color: black;
+  position: absolute;
 }
 
 input[type=checkbox] {
@@ -393,17 +525,6 @@ input[type=checkbox] {
   width: 0;
 }
 
-/*
-    background: linear-gradient(352deg, $primaire -11%, $secondaire 124%);
-    width: 22px;
-    height: 22px;
-    opacity: 100%;
-
-    &:active {
-        opacity: 0%;
-    }
-
-}*/
 @media screen and (min-width: 1200px) {
   .restaurants__direction {
     flex-direction: row;
@@ -411,6 +532,9 @@ input[type=checkbox] {
   .restaurants {
     padding-left: calc(50% - 615px);
     padding-right: calc(50% - 615px);
+  }
+  .check-container:hover .checked {
+    scale: 1;
   }
 }
 .menu {
@@ -422,6 +546,7 @@ input[type=checkbox] {
   position: relative;
   width: 100%;
   max-width: 1029px;
+  box-sizing: border-box;
 }
 .menu .button {
   width: 186px;
@@ -444,10 +569,12 @@ input[type=checkbox] {
   background-color: white;
   padding: 12px;
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
+  animation: cards-fadein 1000ms 5000ms both;
 }
 .menu__cards .txt-container {
   display: flex;
   flex-direction: column;
+  text-overflow: ellipsis;
 }
 .menu__cards .price-container {
   display: flex;
@@ -489,6 +616,7 @@ input[type=checkbox] {
   display: flex;
   align-items: center;
   flex-direction: column;
+  overflow: hidden;
 }
 
 .sliding-checkbox {
@@ -513,22 +641,425 @@ input[type=checkbox] {
   align-self: center;
   width: 300px;
 }
+.title-container .check-container {
+  position: static;
+}
 .title-container input[type=checkbox]:checked ~ .checked {
-  display: inline-block;
-}
-.title-container input[type=checkbox]:checked ~ .unchecked {
-  display: none;
+  scale: 1;
 }
 
-.restaurants input[type=checkbox]:checked ~ .checked {
-  display: inline-block;
-}
-.restaurants input[type=checkbox]:checked ~ .unchecked {
-  display: none;
+.menu .menu__cards:nth-child(1n) {
+  animation-delay: 2600ms;
 }
 
+.menu .menu__cards:nth-child(2n) {
+  animation-delay: 2700ms;
+}
+
+.menu .menu__cards:nth-child(3n) {
+  animation-delay: 2800ms;
+}
+
+.menu .menu__cards:nth-child(4n) {
+  animation-delay: 2900ms;
+}
+
+.menu .menu__cards:nth-child(5n) {
+  animation-delay: 3000ms;
+}
+
+.menu .menu__cards:nth-child(6n) {
+  animation-delay: 3100ms;
+}
+
+.menu .menu__cards:nth-child(7n) {
+  animation-delay: 3200ms;
+}
+
+.menu .menu__cards:nth-child(8n) {
+  animation-delay: 3300ms;
+}
+
+.menu .menu__cards:nth-child(9n) {
+  animation-delay: 3400ms;
+}
+
+.menu .menu__cards:nth-child(10n) {
+  animation-delay: 3500ms;
+}
+
+.menu .menu__cards:nth-child(11n) {
+  animation-delay: 3600ms;
+}
+
+.menu .menu__cards:nth-child(12n) {
+  animation-delay: 3700ms;
+}
+
+.menu .menu__cards:nth-child(13n) {
+  animation-delay: 3800ms;
+}
+
+.menu .menu__cards:nth-child(14n) {
+  animation-delay: 3900ms;
+}
+
+.menu .menu__cards:nth-child(15n) {
+  animation-delay: 4000ms;
+}
+
+.menu .menu__cards:nth-child(16n) {
+  animation-delay: 4100ms;
+}
+
+.menu .menu__cards:nth-child(17n) {
+  animation-delay: 4200ms;
+}
+
+.menu .menu__cards:nth-child(18n) {
+  animation-delay: 4300ms;
+}
+
+.menu .menu__cards:nth-child(19n) {
+  animation-delay: 4400ms;
+}
+
+.menu .menu__cards:nth-child(20n) {
+  animation-delay: 4500ms;
+}
+
+.menu .menu__cards:nth-child(21n) {
+  animation-delay: 4600ms;
+}
+
+.menu .menu__cards:nth-child(22n) {
+  animation-delay: 4700ms;
+}
+
+.menu .menu__cards:nth-child(23n) {
+  animation-delay: 4800ms;
+}
+
+.menu .menu__cards:nth-child(24n) {
+  animation-delay: 4900ms;
+}
+
+.menu .menu__cards:nth-child(25n) {
+  animation-delay: 5000ms;
+}
+
+.menu .menu__cards:nth-child(26n) {
+  animation-delay: 5100ms;
+}
+
+.menu .menu__cards:nth-child(27n) {
+  animation-delay: 5200ms;
+}
+
+.menu .menu__cards:nth-child(28n) {
+  animation-delay: 5300ms;
+}
+
+.menu .menu__cards:nth-child(29n) {
+  animation-delay: 5400ms;
+}
+
+.menu .menu__cards:nth-child(30n) {
+  animation-delay: 5500ms;
+}
+
+.menu .menu__cards:nth-child(31n) {
+  animation-delay: 5600ms;
+}
+
+.menu .menu__cards:nth-child(32n) {
+  animation-delay: 5700ms;
+}
+
+.menu .menu__cards:nth-child(33n) {
+  animation-delay: 5800ms;
+}
+
+.menu .menu__cards:nth-child(34n) {
+  animation-delay: 5900ms;
+}
+
+.menu .menu__cards:nth-child(35n) {
+  animation-delay: 6000ms;
+}
+
+.menu .menu__cards:nth-child(36n) {
+  animation-delay: 6100ms;
+}
+
+.menu .menu__cards:nth-child(37n) {
+  animation-delay: 6200ms;
+}
+
+.menu .menu__cards:nth-child(38n) {
+  animation-delay: 6300ms;
+}
+
+.menu .menu__cards:nth-child(39n) {
+  animation-delay: 6400ms;
+}
+
+.menu .menu__cards:nth-child(40n) {
+  animation-delay: 6500ms;
+}
+
+.menu .menu__cards:nth-child(41n) {
+  animation-delay: 6600ms;
+}
+
+.menu .menu__cards:nth-child(42n) {
+  animation-delay: 6700ms;
+}
+
+.menu .menu__cards:nth-child(43n) {
+  animation-delay: 6800ms;
+}
+
+.menu .menu__cards:nth-child(44n) {
+  animation-delay: 6900ms;
+}
+
+.menu .menu__cards:nth-child(45n) {
+  animation-delay: 7000ms;
+}
+
+.menu .menu__cards:nth-child(46n) {
+  animation-delay: 7100ms;
+}
+
+.menu .menu__cards:nth-child(47n) {
+  animation-delay: 7200ms;
+}
+
+.menu .menu__cards:nth-child(48n) {
+  animation-delay: 7300ms;
+}
+
+.menu .menu__cards:nth-child(49n) {
+  animation-delay: 7400ms;
+}
+
+.menu .menu__cards:nth-child(50n) {
+  animation-delay: 7500ms;
+}
+
+.menu .menu__cards:nth-child(51n) {
+  animation-delay: 7600ms;
+}
+
+.menu .menu__cards:nth-child(52n) {
+  animation-delay: 7700ms;
+}
+
+.menu .menu__cards:nth-child(53n) {
+  animation-delay: 7800ms;
+}
+
+.menu .menu__cards:nth-child(54n) {
+  animation-delay: 7900ms;
+}
+
+.menu .menu__cards:nth-child(55n) {
+  animation-delay: 8000ms;
+}
+
+.menu .menu__cards:nth-child(56n) {
+  animation-delay: 8100ms;
+}
+
+.menu .menu__cards:nth-child(57n) {
+  animation-delay: 8200ms;
+}
+
+.menu .menu__cards:nth-child(58n) {
+  animation-delay: 8300ms;
+}
+
+.menu .menu__cards:nth-child(59n) {
+  animation-delay: 8400ms;
+}
+
+.menu .menu__cards:nth-child(60n) {
+  animation-delay: 8500ms;
+}
+
+.menu .menu__cards:nth-child(61n) {
+  animation-delay: 8600ms;
+}
+
+.menu .menu__cards:nth-child(62n) {
+  animation-delay: 8700ms;
+}
+
+.menu .menu__cards:nth-child(63n) {
+  animation-delay: 8800ms;
+}
+
+.menu .menu__cards:nth-child(64n) {
+  animation-delay: 8900ms;
+}
+
+.menu .menu__cards:nth-child(65n) {
+  animation-delay: 9000ms;
+}
+
+.menu .menu__cards:nth-child(66n) {
+  animation-delay: 9100ms;
+}
+
+.menu .menu__cards:nth-child(67n) {
+  animation-delay: 9200ms;
+}
+
+.menu .menu__cards:nth-child(68n) {
+  animation-delay: 9300ms;
+}
+
+.menu .menu__cards:nth-child(69n) {
+  animation-delay: 9400ms;
+}
+
+.menu .menu__cards:nth-child(70n) {
+  animation-delay: 9500ms;
+}
+
+.menu .menu__cards:nth-child(71n) {
+  animation-delay: 9600ms;
+}
+
+.menu .menu__cards:nth-child(72n) {
+  animation-delay: 9700ms;
+}
+
+.menu .menu__cards:nth-child(73n) {
+  animation-delay: 9800ms;
+}
+
+.menu .menu__cards:nth-child(74n) {
+  animation-delay: 9900ms;
+}
+
+.menu .menu__cards:nth-child(75n) {
+  animation-delay: 10000ms;
+}
+
+.menu .menu__cards:nth-child(76n) {
+  animation-delay: 10100ms;
+}
+
+.menu .menu__cards:nth-child(77n) {
+  animation-delay: 10200ms;
+}
+
+.menu .menu__cards:nth-child(78n) {
+  animation-delay: 10300ms;
+}
+
+.menu .menu__cards:nth-child(79n) {
+  animation-delay: 10400ms;
+}
+
+.menu .menu__cards:nth-child(80n) {
+  animation-delay: 10500ms;
+}
+
+.menu .menu__cards:nth-child(81n) {
+  animation-delay: 10600ms;
+}
+
+.menu .menu__cards:nth-child(82n) {
+  animation-delay: 10700ms;
+}
+
+.menu .menu__cards:nth-child(83n) {
+  animation-delay: 10800ms;
+}
+
+.menu .menu__cards:nth-child(84n) {
+  animation-delay: 10900ms;
+}
+
+.menu .menu__cards:nth-child(85n) {
+  animation-delay: 11000ms;
+}
+
+.menu .menu__cards:nth-child(86n) {
+  animation-delay: 11100ms;
+}
+
+.menu .menu__cards:nth-child(87n) {
+  animation-delay: 11200ms;
+}
+
+.menu .menu__cards:nth-child(88n) {
+  animation-delay: 11300ms;
+}
+
+.menu .menu__cards:nth-child(89n) {
+  animation-delay: 11400ms;
+}
+
+.menu .menu__cards:nth-child(90n) {
+  animation-delay: 11500ms;
+}
+
+.menu .menu__cards:nth-child(91n) {
+  animation-delay: 11600ms;
+}
+
+.menu .menu__cards:nth-child(92n) {
+  animation-delay: 11700ms;
+}
+
+.menu .menu__cards:nth-child(93n) {
+  animation-delay: 11800ms;
+}
+
+.menu .menu__cards:nth-child(94n) {
+  animation-delay: 11900ms;
+}
+
+.menu .menu__cards:nth-child(95n) {
+  animation-delay: 12000ms;
+}
+
+.menu .menu__cards:nth-child(96n) {
+  animation-delay: 12100ms;
+}
+
+.menu .menu__cards:nth-child(97n) {
+  animation-delay: 12200ms;
+}
+
+.menu .menu__cards:nth-child(98n) {
+  animation-delay: 12300ms;
+}
+
+.menu .menu__cards:nth-child(99n) {
+  animation-delay: 12400ms;
+}
+
+.menu .menu__cards:nth-child(100n) {
+  animation-delay: 12500ms;
+}
+
+@keyframes cards-fadein {
+  0% {
+    transform: translateX(-100px);
+    opacity: 0%;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 100%;
+  }
+}
 @media screen and (min-width: 1200px) {
-  .menu__cards:hover > .price-container {
+  .menu__cards:hover .price-container {
     margin-right: -14px;
   }
 }/*# sourceMappingURL=styles.css.map */

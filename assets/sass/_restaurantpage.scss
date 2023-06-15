@@ -1,4 +1,5 @@
 
+$cards-fadein-delay: $loader-duration + $loader-delay + $main-delay;
 
 .menu {
     
@@ -10,6 +11,8 @@
     position: relative;
     width: 100%;
     max-width: 1029px;
+    box-sizing: border-box;
+
 
     .button {
 
@@ -34,6 +37,7 @@
     }
 
     &__cards {
+
         overflow: hidden;
         display: flex;
         justify-content: space-between;
@@ -41,27 +45,31 @@
         background-color: white;
         padding: 12px;
         box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
+        animation: cards-fadein 1000ms $cards-fadein-delay both;
 
-    .txt-container {
-        display: flex;
-        flex-direction: column ;
+        .txt-container {
+
+            display: flex;
+            flex-direction: column ;
+            text-overflow: ellipsis;
+
+        }
+
+        .price-container {
+
+            display: flex;
+            justify-content: space-around;
+            flex-direction: row;
+            align-items: center;
+            position: relative;
+            margin-right: -74px;
+            width: 120px;
+            transition: all 0.5s ease-in-out;
+
+        }
+
     }
 
-    .price-container {
-        display: flex;
-        justify-content: space-around;
-        flex-direction: row;
-        align-items: center;
-        position: relative;
-        margin-right: -74px;
-
-        width: 120px; //%
-        transition: all 0.5s ease-in-out;
-
-
-    }
-
-    }
     
 }
 
@@ -102,6 +110,7 @@
     display: flex;
     align-items: center;
     flex-direction: column;
+    overflow: hidden;
     
 }
 
@@ -115,54 +124,75 @@
     align-items: center;
     justify-content: center;
     margin: -20px;
+
 }
 
 
 .menu input[type="checkbox"]{
 
-
     &:checked~.price-container {
+
         margin-right: -14px;  
+
     }
 
 }
 
 .title-container {
+
     display: flex;
     align-items: center;
     justify-content: space-between;
     align-self: center;
     width: 300px;
 
+    & .check-container {
+
+        position: static;
+
+    }
+
     & input[type="checkbox"]{
 
         &:checked~.checked {
-            display: inline-block;   
+
+            scale: 1;   
+            
         }
-    
-        &:checked~.unchecked {
-            display: none;
-        }
+
     }
 }
 
-.restaurants input[type="checkbox"]{
 
-    &:checked~.checked {
-        display: inline-block;   
+@for $i from 1 through 100 {
+    .menu .menu__cards:nth-child(#{$i}n) {
+        animation-delay: #{$main-delay + $i * 100};
     }
+}
 
-    &:checked~.unchecked {
-        display: none;
+
+@keyframes cards-fadein{
+    0% {
+        transform: translateX(-100px);
+        opacity: 0%;
+    }
+    
+    100% {
+        transform: translateX(0);
+        opacity: 100%;
     }
 }
 
 @media screen and (min-width: 1200px) {
 
-    .menu__cards:hover > .price-container{
+    .menu__cards:hover .price-container{
             
         margin-right: -14px;
 
     }
     
 }
+
+
+
+

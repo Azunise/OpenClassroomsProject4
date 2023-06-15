@@ -16,6 +16,10 @@
 
 
 <body>
+    <div class="loader">
+        <div class="loader__part1"><img src="../assets/images/v2.png" alt="progress"></div>
+        <div class="loader__part2"><img src="../assets/images/v1.png" alt="progress bar"></div>
+    </div>
     <div class="main-container">
         <header class="header">
 
@@ -36,8 +40,8 @@
 
                 <div class="title-container">
                     <div class="restaurantspages__title">Le délice des sens</div>
-                    <label>
-                        <input type="checkbox" name="">
+                    <label class="check-container">
+                        <input type="checkbox" name="fav">
                         
                             <i class="fa-sharp fa-regular fa-heart unchecked"></i>
                             <i class="fa-sharp fa-solid fa-heart checked"></i>
@@ -54,7 +58,7 @@
                 
 
                 <label class="menu__cards">
-                    <input type="checkbox" name="">
+                    <input type="checkbox" name="selected">
                         <div class="txt-container">
                             <h4>Tartare de thon</h4>
                             <h5>Assaisoné au yuzu</h5>
@@ -198,7 +202,7 @@
                 </li>
                 
                 <li><a href="#" class="footer__links">Mentions légales</a></li>
-                <li><a href="#" class="footer__links">Contact</a></li>
+                <li><a href="mailto:exemple@ohmyfood.com" class="footer__links">Contact</a></li>
             </ul>
             
         
