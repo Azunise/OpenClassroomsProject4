@@ -6,18 +6,22 @@ $cards-fadein-delay: $loader-duration + $loader-delay + $main-delay;
     display: flex;
     flex-direction: column;
     gap: 12px;
-    padding: 0px 13px 0px 13px;
+    padding: 30px 13px 0px 13px;
     background-color: $grey-1;
     position: relative;
     width: 100%;
     max-width: 1029px;
     box-sizing: border-box;
+    top: -30px;
+    border-radius: 40px 40px 0px 0px;
+    margin-bottom: -30px;
 
 
     .button {
 
         width: 186px;
         align-self: center;
+        margin: 28px 20px 40px 20px;
 
     }
 
@@ -108,13 +112,13 @@ $cards-fadein-delay: $loader-duration + $loader-delay + $main-delay;
 
 .roundbox {
     
-    border-radius: 40px 40px 0px 0px;
+    
     background-color: $grey-1;
-    position: absolute;
-    bottom: 0px;
+    position: relative;
+    top: -30px;
+    left: -13px;
+    width: calc(100% + 26px);
     height: 30px;
-    width: 100%;
-    max-width: 1055px;
 
 }
 

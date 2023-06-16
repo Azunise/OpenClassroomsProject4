@@ -2,13 +2,12 @@
 
 .steps {
 
-    position: relative;
     align-items: center;
     display: flex;
     flex-direction: column;
-    padding: 15px 15px 48px 15px;
+    padding: 15px 25px 48px 25px;
     gap: 25px;
-    margin: 10px;
+    background: white;
 
     &__direction {
 
@@ -73,23 +72,3 @@
 }
 
 
-@media screen and (min-width: 1200px) {
-
-    .steps__direction {
-
-        flex-direction: row;
-
-    }
-
-
-    
-    .steps {
-
-        padding-left: calc(50% - 615px);
-        padding-right: calc(50% - 615px);
-
-    }
-        
-
-
-}

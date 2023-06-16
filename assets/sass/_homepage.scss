@@ -1,15 +1,22 @@
 $loader-duration: 2000ms;
 $loader-delay: 500ms;
 $main-delay: $loader-duration + $loader-delay;
+$loading_cycle-half_sidelength: 130px;
+$progress_bar-half_width: 290px;
+$progress_bar-half_height: 36px;
+
 
 .loader {
-    overflow: hidden;
+    //overflow: hidden;
+    
+    z-index: -1;
 
     &__part0 {
         display: block;
         position:absolute;
-        top: 40%;
-        left: 30%;
+        top: calc(45% - $loading_cycle-half_sidelength);
+        left: calc(50% - $loading_cycle-half_sidelength);
+        position: fixed;
 
         & img {
             
@@ -22,14 +29,13 @@ $main-delay: $loader-duration + $loader-delay;
     }
     
     &__part1 {
-        width: 50%;
-        height: 15%;
         position:absolute;
-        top: 40%;
-        left: 30%;
+        top: calc(45% - $progress_bar-half_height);
+        left: calc(50% - $progress_bar-half_width);
         overflow: hidden;
         animation: loader-bar-1 $loader-duration $loader-delay forwards;
         display: none;
+        position: fixed;
 
         & img {
             
@@ -42,14 +48,13 @@ $main-delay: $loader-duration + $loader-delay;
     }
     
     &__part2 {
-        width: 50%;
-        height: 15%;
         position: absolute;
-        top: 40%;
-        left:30%;
+        top: calc(45% - $progress_bar-half_height);
+        left: calc(50% - $progress_bar-half_width);
         overflow: hidden;
         animation: loader-bar-2-1 $loader-duration $loader-delay both;
         display: none;
+        position: fixed;
 
         & img {
             animation: loader-bar-2 $loader-duration $loader-delay;

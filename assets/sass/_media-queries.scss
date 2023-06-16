@@ -67,8 +67,8 @@
 
     .restaurants {
 
-        padding-left: calc(50% - 615px);
-        padding-right: calc(50% - 615px);
+        padding-left: calc(50% - 570px);
+        padding-right: calc(50% - 570px);
 
     }
 
@@ -78,4 +78,25 @@
     
     }
     
+}
+
+@media screen and (min-width: 1200px) {
+
+    .steps__direction {
+
+        flex-direction: row;
+
+    }
+
+
+    
+    .steps {
+
+        padding-left: calc(50% - 570px);
+        padding-right: calc(50% - 570px);
+
+    }
+        
+
+
 }

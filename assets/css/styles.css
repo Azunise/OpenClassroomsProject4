@@ -134,9 +134,82 @@ h6 {
   line-height: 16px;
 }
 
-@media screen and (min-width: 1200px) {
-  .restaurantspages__title {
-    align-self: center;
+@keyframes main-fadein {
+  0% {
+    opacity: 0%;
+  }
+  25% {
+    opacity: 75%;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+@keyframes loader-bar-2-2 {
+  0% {
+    padding-right: 100%;
+  }
+  80% {
+    padding-right: 0%;
+  }
+  100% {
+    padding-right: 0%;
+    display: none;
+  }
+}
+@keyframes loader-bar-2-1 {
+  0% {
+    width: 0%;
+    opacity: 100%;
+  }
+  80% {
+    opacity: 100%;
+    width: 50%;
+  }
+  100% {
+    width: 50%;
+    opacity: 0%;
+    display: none;
+  }
+}
+@keyframes loader-bar-0 {
+  0% {
+    transform: rotate(359deg);
+    opacity: 100%;
+  }
+  80% {
+    opacity: 100%;
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-20deg);
+    opacity: 0%;
+    display: none;
+  }
+}
+@keyframes loader-bar-1 {
+  0% {
+    opacity: 100%;
+  }
+  80% {
+    opacity: 100%;
+  }
+  90% {
+    opacity: 0%;
+  }
+  100% {
+    opacity: 0%;
+    display: none;
+  }
+}
+@keyframes cards-fadein {
+  0% {
+    transform: translateX(-100px);
+    opacity: 0%;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 100%;
   }
 }
 header {
@@ -182,27 +255,31 @@ header {
   left: 12px;
 }
 
-@media screen and (min-width: 1200px) {
-  .footer {
-    flex-direction: row-reverse;
-    gap: 45px;
-  }
-  .ul__nobullets {
-    display: flex;
-    gap: 50px;
-  }
-}
 .loader {
-  overflow: hidden;
+  z-index: -1;
+}
+.loader__part0 {
+  display: block;
+  position: absolute;
+  top: calc(45% - 130px);
+  left: calc(50% - 130px);
+  position: fixed;
+}
+.loader__part0 img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  max-height: none;
+  max-width: none;
+  animation: loader-bar-0 2000ms 500ms forwards;
 }
 .loader__part1 {
-  height: 100px;
-  width: 300px;
   position: absolute;
-  top: 40%;
-  left: 25%;
+  top: calc(45% - 36px);
+  left: calc(50% - 290px);
   overflow: hidden;
   animation: loader-bar-1 2000ms 500ms forwards;
+  display: none;
+  position: fixed;
 }
 .loader__part1 img {
   -o-object-fit: cover;
@@ -211,13 +288,13 @@ header {
   max-width: none;
 }
 .loader__part2 {
-  height: 100px;
-  width: 300px;
   position: absolute;
-  top: 40%;
-  left: 25%;
+  top: calc(45% - 36px);
+  left: calc(50% - 290px);
   overflow: hidden;
-  animation: loader-bar-flat-2-1 2000ms 500ms both;
+  animation: loader-bar-2-1 2000ms 500ms both;
+  display: none;
+  position: fixed;
 }
 .loader__part2 img {
   animation: loader-bar-2 2000ms 500ms;
@@ -227,74 +304,10 @@ header {
   max-width: none;
 }
 
-@keyframes loader-bar-1 {
-  0% {
-    opacity: 100%;
-  }
-  80% {
-    opacity: 100%;
-  }
-  90% {
-    opacity: 0%;
-  }
-  100% {
-    opacity: 0%;
-  }
-}
-@keyframes loader-bar-2-1 {
-  0% {
-    width: 0%;
-    opacity: 100%;
-  }
-  80% {
-    opacity: 100%;
-    width: 50%;
-  }
-  100% {
-    width: 50%;
-    opacity: 0%;
-  }
-}
-@keyframes loader-bar-flat-2-1 {
-  0% {
-    width: 0px;
-    opacity: 100%;
-  }
-  80% {
-    opacity: 100%;
-    width: 300px;
-  }
-  100% {
-    width: 300px;
-    opacity: 0%;
-  }
-}
-@keyframes loader-bar-2-2 {
-  0% {
-    padding-right: 100%;
-  }
-  80% {
-    padding-right: 0%;
-  }
-  100% {
-    padding-right: 0%;
-  }
-}
 .main-container {
   animation: main-fadein 1000ms 2500ms both;
 }
 
-@keyframes main-fadein {
-  0% {
-    opacity: 0%;
-  }
-  25% {
-    opacity: 75%;
-  }
-  100% {
-    opacity: 100%;
-  }
-}
 .banner {
   display: flex;
   flex-direction: column;
@@ -333,25 +346,13 @@ header {
   box-shadow: 4px 8px 10px rgba(0, 0, 0, 0.25);
 }
 
-@media screen and (min-width: 1200px) {
-  .loader__part1 {
-    width: 50%;
-    height: 15%;
-  }
-  .loader__part2 {
-    width: 50%;
-    height: 15%;
-    animation: loader-bar-2-1 2000ms 500ms both;
-  }
-}
 .steps {
-  position: relative;
   align-items: center;
   display: flex;
   flex-direction: column;
-  padding: 15px 15px 48px 15px;
+  padding: 15px 25px 48px 25px;
   gap: 25px;
-  margin: 10px;
+  background: white;
 }
 .steps__direction {
   display: flex;
@@ -401,18 +402,12 @@ header {
   align-self: flex-start;
 }
 
-@media screen and (min-width: 1200px) {
-  .steps__direction {
-    flex-direction: row;
-  }
-  .steps {
-    padding-left: calc(50% - 615px);
-    padding-right: calc(50% - 615px);
-  }
-}
 .restaurants {
   background-color: #F7F7F7;
-  padding: 15px 15px 35px 15px;
+  padding: 15px 25px 35px 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
 }
 .restaurants .h2 {
   align-self: flex-start;
@@ -424,7 +419,7 @@ header {
   flex-direction: column;
   align-items: center;
   gap: 50px;
-  justify-content: center;
+  justify-content: space-between;
 }
 .restaurants__card {
   display: flex;
@@ -440,22 +435,20 @@ header {
   gap: 7px;
 }
 .restaurants__card .card__txt {
-  display: flex;
-  justify-content: flex-start;
   margin-left: 13px;
-  color: black;
-  text-decoration: none;
   position: relative;
-  bottom: 77px;
+  bottom: 12px;
 }
-.restaurants__card img {
-  width: 100%;
+.restaurants__card a {
+  overflow: hidden;
+  margin-bottom: 23px;
+}
+.restaurants__card a img {
   aspect-ratio: 1/1;
-  position: relative;
-  bottom: 77px;
+  height: 100%;
+  width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
-  margin-bottom: 8px;
 }
 .restaurants__card .notifications {
   position: absolute;
@@ -483,10 +476,6 @@ header {
   width: 22px;
   height: 22px;
   z-index: 4;
-  /*
-  display: flex;
-  align-items: center;
-  justify-content: center;*/
   position: absolute;
   bottom: 33px;
   right: 25px;
@@ -525,32 +514,24 @@ input[type=checkbox] {
   width: 0;
 }
 
-@media screen and (min-width: 1200px) {
-  .restaurants__direction {
-    flex-direction: row;
-  }
-  .restaurants {
-    padding-left: calc(50% - 615px);
-    padding-right: calc(50% - 615px);
-  }
-  .check-container:hover .checked {
-    scale: 1;
-  }
-}
 .menu {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  padding: 0px 13px 0px 13px;
+  padding: 30px 13px 0px 13px;
   background-color: #F7F7F7;
   position: relative;
   width: 100%;
   max-width: 1029px;
   box-sizing: border-box;
+  top: -30px;
+  border-radius: 40px 40px 0px 0px;
+  margin-bottom: -30px;
 }
 .menu .button {
   width: 186px;
   align-self: center;
+  margin: 28px 20px 40px 20px;
 }
 .menu__title {
   display: flex;
@@ -574,6 +555,17 @@ input[type=checkbox] {
 .menu__cards .txt-container {
   display: flex;
   flex-direction: column;
+  overflow: hidden;
+  width: 75%;
+}
+.menu__cards .txt-container h4 {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.menu__cards .txt-container h5 {
+  overflow: hidden;
+  white-space: nowrap;
   text-overflow: ellipsis;
 }
 .menu__cards .price-container {
@@ -603,13 +595,12 @@ input[type=checkbox] {
 }
 
 .roundbox {
-  border-radius: 40px 40px 0px 0px;
   background-color: #F7F7F7;
-  position: absolute;
-  bottom: 0px;
+  position: relative;
+  top: -30px;
+  left: -13px;
+  width: calc(100% + 26px);
   height: 30px;
-  width: 100%;
-  max-width: 1055px;
 }
 
 .main__restaurantspages {
@@ -1048,18 +1039,55 @@ input[type=checkbox] {
   animation-delay: 12500ms;
 }
 
-@keyframes cards-fadein {
-  0% {
-    transform: translateX(-100px);
-    opacity: 0%;
+@media screen and (min-width: 1200px) {
+  .loader__part0 {
+    display: none;
   }
-  100% {
-    transform: translateX(0);
-    opacity: 100%;
+  .loader__part1 {
+    display: block;
+  }
+  .loader__part2 {
+    display: block;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .restaurantspages__title {
+    align-self: center;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .footer {
+    flex-direction: row-reverse;
+    gap: 45px;
+  }
+  .ul__nobullets {
+    display: flex;
+    gap: 50px;
   }
 }
 @media screen and (min-width: 1200px) {
   .menu__cards:hover .price-container {
     margin-right: -14px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .restaurants__direction {
+    flex-direction: row;
+  }
+  .restaurants {
+    padding-left: calc(50% - 570px);
+    padding-right: calc(50% - 570px);
+  }
+  .check-container:hover .checked {
+    scale: 1;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .steps__direction {
+    flex-direction: row;
+  }
+  .steps {
+    padding-left: calc(50% - 570px);
+    padding-right: calc(50% - 570px);
   }
 }/*# sourceMappingURL=styles.css.map */
