@@ -59,15 +59,19 @@ $cards-fadein-delay: $loader-duration + $loader-delay + $main-delay;
             width: 75%;
 
             & h4 {
+
                 overflow: hidden;
                 white-space: nowrap;
                 text-overflow: ellipsis;
+
             }
 
             & h5 {
+
                 overflow: hidden;
                 white-space: nowrap;
                 text-overflow: ellipsis;
+                
             }
 
         }
@@ -87,7 +91,6 @@ $cards-fadein-delay: $loader-duration + $loader-delay + $main-delay;
 
     }
 
-    
 }
 
 .restaurantspages__banner {
@@ -111,8 +114,7 @@ $cards-fadein-delay: $loader-duration + $loader-delay + $main-delay;
 
 
 .roundbox {
-    
-    
+
     background-color: $grey-1;
     position: relative;
     top: -30px;
@@ -178,15 +180,16 @@ $cards-fadein-delay: $loader-duration + $loader-delay + $main-delay;
         }
 
     }
+
 }
 
 
 @for $i from 1 through 100 {
+
     .menu .menu__cards:nth-child(#{$i}n) {
+
         animation-delay: #{$main-delay + $i * 100};
+
     }
+
 }
-
-
-
-

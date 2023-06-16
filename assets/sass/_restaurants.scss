@@ -2,7 +2,6 @@
 
     background-color: $grey-1;
     padding: 15px 25px 35px 25px;
-    
     display: flex;
     flex-direction: column;
     gap: 25px;
@@ -14,8 +13,6 @@
 
     }
 
-
-    
     &__direction {
 
         display: flex;
@@ -41,16 +38,13 @@
         border-radius: 15px;
         gap: 7px;
 
-
-
     .card__txt {
+
         margin-left: 13px;
         position: relative;
         bottom: 12px;
 
     }
-
-    
 
     a{
 
@@ -58,10 +52,12 @@
         margin-bottom: 23px;
 
         img {
+
             aspect-ratio: 1/1;
             height: 100%;
             width: 100%;
             object-fit: cover;
+
         }
     
     }
@@ -77,20 +73,23 @@
         border-radius: 2px;
         width: 80px;
         padding: 6px;
-    
         display: flex;
         justify-content: center;
     
     }
 
     & .checked {
+
         bottom: 0px;
         right: 0px;
+
     }
 
     & .unchecked {
+
         bottom: 0px;
         right: 0px;
+
     }
 
     }
@@ -98,6 +97,7 @@
 }
 
 .check-container {
+
     width: 22px;
     height: 22px;
     z-index: 4;
@@ -123,6 +123,7 @@
 }
 
 .checked {
+
     z-index: 3;
     scale: 0;
     background: linear-gradient(352deg, $primaire -11%, $secondaire 124%);
@@ -132,11 +133,10 @@
     transition: scale 0.5s;
     position: absolute;
     
-
 }
 
-
 .unchecked {
+
     z-index: 2;
     color: black;
     position: absolute;
@@ -144,11 +144,11 @@
 }
 
 input[type="checkbox"]{
+
     position: absolute;
     opacity: 0;
     cursor: pointer;
     height: 0;
     width: 0;
+
 }
-
-

@@ -7,11 +7,11 @@ $progress_bar-half_height: 36px;
 
 
 .loader {
-    //overflow: hidden;
-    
+
     z-index: -1;
 
     &__part0 {
+
         display: block;
         position:absolute;
         top: calc(45% - $loading_cycle-half_sidelength);
@@ -26,9 +26,11 @@ $progress_bar-half_height: 36px;
             animation: loader-bar-0 $loader-duration $loader-delay forwards;
             
         }
+
     }
     
     &__part1 {
+
         position:absolute;
         top: calc(45% - $progress_bar-half_height);
         left: calc(50% - $progress_bar-half_width);
@@ -48,6 +50,7 @@ $progress_bar-half_height: 36px;
     }
     
     &__part2 {
+
         position: absolute;
         top: calc(45% - $progress_bar-half_height);
         left: calc(50% - $progress_bar-half_width);
@@ -57,6 +60,7 @@ $progress_bar-half_height: 36px;
         position: fixed;
 
         & img {
+
             animation: loader-bar-2 $loader-duration $loader-delay;
             object-fit: cover;
             max-height: none;
@@ -69,9 +73,10 @@ $progress_bar-half_height: 36px;
 }
 
 .main-container{
-    animation: main-fadein 1000ms $main-delay both;
-}
 
+    animation: main-fadein 1000ms $main-delay both;
+
+}
 
 .banner {
 
@@ -88,7 +93,6 @@ $progress_bar-half_height: 36px;
         width: 218px;
 
     }
-
 
     &__gps {
 
@@ -120,7 +124,6 @@ $progress_bar-half_height: 36px;
         transition-duration: 250ms;
         opacity: 85%;
         box-shadow: 4px 8px 10px rgba(0, 0, 0, 0.25);
-        //scale: 1.01;
         
     }
     

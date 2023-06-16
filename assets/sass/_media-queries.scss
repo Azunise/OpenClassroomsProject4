@@ -4,9 +4,11 @@
     .loader {
 
         &__part0 {
+            
             display: none;
         }
         &__part1 {
+
             display: block;
         }
 
@@ -88,15 +90,11 @@
 
     }
 
-
-    
     .steps {
 
         padding-left: calc(50% - 570px);
         padding-right: calc(50% - 570px);
 
     }
-        
-
 
 }
