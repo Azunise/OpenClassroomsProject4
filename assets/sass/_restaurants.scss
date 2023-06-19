@@ -111,7 +111,8 @@
 
     &:checked~.checked {
 
-        scale: 1; 
+        transform: scale(1);
+
     }
 
 }
@@ -125,12 +126,12 @@
 .checked {
 
     z-index: 3;
-    scale: 0;
+    transform: scale(0);
     background: linear-gradient(352deg, $primaire -11%, $secondaire 124%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    transition: scale 0.5s;
+    transition: all 0.5s;
     position: absolute;
     
 }

@@ -8,12 +8,10 @@ $progress_bar-half_height: 36px;
 
 .loader {
 
-    z-index: -1;
-
     &__part0 {
 
         display: block;
-        position:absolute;
+        
         top: calc(45% - $loading_cycle-half_sidelength);
         left: calc(50% - $loading_cycle-half_sidelength);
         position: fixed;
@@ -31,7 +29,7 @@ $progress_bar-half_height: 36px;
     
     &__part1 {
 
-        position:absolute;
+        
         top: calc(45% - $progress_bar-half_height);
         left: calc(50% - $progress_bar-half_width);
         overflow: hidden;
@@ -99,7 +97,7 @@ $progress_bar-half_height: 36px;
         display: flex;
         justify-content: center;
         align-items: center;
-        padding: 15px;
+        padding: 8px;
         gap: 17px;
         color: #353535;
         background-color: #EAEAEA;
@@ -128,3 +126,15 @@ $progress_bar-half_height: 36px;
     }
     
 }
+
+select {
+    width: 100%;
+    padding: 7px 0px;
+    border: none;
+    border-radius: 4px;
+    background-color: #EAEAEA;
+
+    @include roboto(500, 16px, 19px);
+    margin: 0%;
+
+  }

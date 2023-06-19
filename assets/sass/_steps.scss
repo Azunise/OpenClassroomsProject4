@@ -50,15 +50,18 @@
         
     }
 
-    &__cards > .fontawesome--grey {
+    &__cards .purple-on-hover {
 
         color: $grey-4;
 
     }
 
-    &__cards > .fontawesome--purple {
+    &__cards:hover {
 
-        color: $primaire;
+        .purple-on-hover{
+            color: $primaire;
+        }
+        
 
     }
 

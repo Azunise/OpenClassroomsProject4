@@ -1,6 +1,4 @@
 
-$cards-fadein-delay: $loader-duration + $loader-delay + $main-delay;
-
 .menu {
     
     display: flex;
@@ -49,7 +47,7 @@ $cards-fadein-delay: $loader-duration + $loader-delay + $main-delay;
         background-color: white;
         padding: 12px;
         box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
-        animation: cards-fadein 1000ms $cards-fadein-delay both;
+        animation: cards-fadein 1000ms both;
 
         .txt-container {
 
@@ -175,7 +173,7 @@ $cards-fadein-delay: $loader-duration + $loader-delay + $main-delay;
 
         &:checked~.checked {
 
-            scale: 1;   
+            transform: scale(1);  
             
         }
 

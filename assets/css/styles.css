@@ -255,12 +255,8 @@ header {
   left: 12px;
 }
 
-.loader {
-  z-index: -1;
-}
 .loader__part0 {
   display: block;
-  position: absolute;
   top: calc(45% - 130px);
   left: calc(50% - 130px);
   position: fixed;
@@ -273,7 +269,6 @@ header {
   animation: loader-bar-0 2000ms 500ms forwards;
 }
 .loader__part1 {
-  position: absolute;
   top: calc(45% - 36px);
   left: calc(50% - 290px);
   overflow: hidden;
@@ -324,7 +319,7 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 15px;
+  padding: 8px;
   gap: 17px;
   color: #353535;
   background-color: #EAEAEA;
@@ -344,6 +339,20 @@ header {
   transition-duration: 250ms;
   opacity: 85%;
   box-shadow: 4px 8px 10px rgba(0, 0, 0, 0.25);
+}
+
+select {
+  width: 100%;
+  padding: 7px 0px;
+  border: none;
+  border-radius: 4px;
+  background-color: #EAEAEA;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  margin: 0%;
 }
 
 .steps {
@@ -390,10 +399,10 @@ header {
   font-size: 14px;
   line-height: 17px;
 }
-.steps__cards > .fontawesome--grey {
+.steps__cards .purple-on-hover {
   color: #7E7E7E;
 }
-.steps__cards > .fontawesome--purple {
+.steps__cards:hover .purple-on-hover {
   color: #9356DC;
 }
 
@@ -482,7 +491,7 @@ header {
 }
 
 .restaurants input[type=checkbox]:checked ~ .checked {
-  scale: 1;
+  transform: scale(1);
 }
 
 .fa-heart {
@@ -491,12 +500,12 @@ header {
 
 .checked {
   z-index: 3;
-  scale: 0;
+  transform: scale(0);
   background: linear-gradient(352deg, #9356DC -11%, #FF79DA 124%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  transition: scale 0.5s;
+  transition: all 0.5s;
   position: absolute;
 }
 
@@ -550,7 +559,7 @@ input[type=checkbox] {
   background-color: white;
   padding: 12px;
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
-  animation: cards-fadein 1000ms 5000ms both;
+  animation: cards-fadein 1000ms both;
 }
 .menu__cards .txt-container {
   display: flex;
@@ -636,7 +645,7 @@ input[type=checkbox] {
   position: static;
 }
 .title-container input[type=checkbox]:checked ~ .checked {
-  scale: 1;
+  transform: scale(1);
 }
 
 .menu .menu__cards:nth-child(1n) {
@@ -1079,7 +1088,7 @@ input[type=checkbox] {
     padding-right: calc(50% - 570px);
   }
   .check-container:hover .checked {
-    scale: 1;
+    transform: scale(1);
   }
 }
 @media screen and (min-width: 1200px) {
